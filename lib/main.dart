@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_farm_phone/common/view/splash_screen.dart';
 
 void main() {
   runApp(
@@ -14,10 +14,7 @@ class _App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-
-        body: Container(),
-      ),
+      home: SplashScreen(),
     );
   }
 }
