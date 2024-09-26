@@ -18,14 +18,10 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     deleteToken();
     checkToken();
-    // WidgetsBinding.instance.addPostFrameCallback((_) {
-    //   _initializeApp();
-    // });
+
   }
 
-  // Future<void> _initializeApp() async {
-  //
-  // }
+
   void deleteToken() async{
     await storage.deleteAll();
   }
@@ -33,6 +29,8 @@ class _SplashScreenState extends State<SplashScreen> {
   void checkToken() async {
     final refreshToken = await storage.read(key: REFRESH_TOKEN_KEY);
     final accessToken = await storage.read(key: ACCESS_TOKEN_KEY);
+
+    // 토큰이 없으면 바로 로그인 화면, 있으면 기본탭으로 감
     if (refreshToken == null || accessToken == null) {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
@@ -43,7 +41,7 @@ class _SplashScreenState extends State<SplashScreen> {
     } else {
       Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(
-          builder: (_) => RootTab(),
+          builder: (_) => RootTab() ,
         ),
         (route) => false,
       );
@@ -59,6 +57,7 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // 로딩 이미지
             // Image.asset(
             //   'name',
             //   width: MediaQuery.of(context).size.width / 2,

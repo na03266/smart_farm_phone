@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smart_farm_phone/common/const/colors.dart';
 import 'package:smart_farm_phone/common/layout/default_layout.dart';
+import 'package:smart_farm_phone/sensor/view/sensor_data_screen.dart';
 
 class RootTab extends StatefulWidget {
   const RootTab({super.key});
@@ -43,7 +44,7 @@ class _RootTabState extends State<RootTab> with SingleTickerProviderStateMixin {
         physics: NeverScrollableScrollPhysics(),
         controller: controller,
         children: [
-          Container(child: Text('재배관리')),
+          SensorDataScreen(),
           Container(child: Text('장치관리')),
           Container(child: Text('CCTV')),
           Container(child: Text('설정')),
